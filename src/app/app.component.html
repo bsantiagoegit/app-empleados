@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="col">
+        <h1 class="text text-center">{{ title }}</h1>
+        <hr>
+        <form class="form-group row">
+            <!-- GRUPO NOMBRE -->
+            <div class="form-group col-md-3">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Ingrese un nombre" class="form-control" [(ngModel)]="cuadroNombre">
+            </div>
+            <!-- GRUPO APELLIDO -->
+            <div class="form-group col-md-3">
+                <label for="apellido">Apellido:</label>
+                <input type="text" name="apellido" id="apellido" placeholder="Ingrese un apellido" class="form-control" [(ngModel)]="cuadroApellido">
+            </div>
+            <!-- GRUPO CARGO -->
+            <div class="form-group col-md-3">
+                <label for="cargo">Cargo:</label>
+                <input type="text" name="cargo" id="cargo" placeholder="Ingrese un cargo" class="form-control" [(ngModel)]="cuadroCargo">
+            </div>
+            <!-- GRUPO SALARIO -->
+            <div class="form-group col-md-3">
+                <label for="salario">Salario:</label>
+                <input type="number" name="salario" id="salario" placeholder="Ingrese un salario" class="form-control" [(ngModel)]="cuadroSalario">
+            </div>
+            <!-- GRUPO BOTON -->
+            <div class="col">
+                <br>
+                <button class="btn btn-success" type="submit" (click)="agregarEmpleado()">AGREGAR EMPLEADO</button>
+            </div>
+        </form>
+    </div>
+</div><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div *ngFor="let empleado of empleados; let i = index;">
+                {{ i+1 }}: {{ empleado.nombre }} {{ empleado.apellido }} {{ empleado.cargo }} {{ empleado.salario }}
+            </div>
+        </div>
+    </div>
+</div>
