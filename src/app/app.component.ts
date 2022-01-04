@@ -15,4 +15,19 @@ export class AppComponent {
     new Empleado('Norman', 'Guarnizo', 'Jefe Sección', 3500),
     new Empleado('Jeannina', 'Solano', 'Administrativo', 2500),
   ];
+
+  addEmpleado() {
+    let newEmpleado = new Empleado(
+      this.inputNombre,
+      this.inputApellido,
+      this.inputCargo,
+      this.inputSalario
+    );
+    this.empleados.push(newEmpleado);
+  }
+
+  inputNombre: string = '';
+  inputApellido: string = '';
+  inputCargo: string = '';
+  inputSalario: number = 0;
 }

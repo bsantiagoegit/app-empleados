@@ -1,9 +1,64 @@
 <div class="container">
+    <div class="col" style="text-align: center">
+        <h1>{{ title }}</h1>
+    </div>
+    <br />
+    <form action="" class="form-group row">
+        <!-- GRUPO NOMBRE -->
+        <div class="form-group col-md-3">
+            <label for="nombre">Nombre: </label>
+            <input type="text" name="nombre" id="nombre" placeholder="Ingrese el nombre" class="form-control" [(ngModel)]="inputNombre" />
+        </div>
+        <!-- GRUPO APELLIDO -->
+        <div class="form-group col-md-3">
+            <label for="apellido">Apellido: </label>
+            <input type="text" name="apellido" id="apellido" placeholder="Ingrese el Apellido" class="form-control" [(ngModel)]="inputApellido" />
+        </div>
+        <!-- GRUPO CARGO -->
+        <div class="form-group col-md-3">
+            <label for="cargo">Cargo: </label>
+            <input type="text" name="cargo" id="cargo" placeholder="Ingrese el cargo" class="form-control" [(ngModel)]="inputCargo" />
+        </div>
+        <!-- GRUPO SALARIO -->
+        <div class="form-group col-md-3">
+            <label for="salario">Salario: </label>
+            <input type="text" name="salario" id="salario" placeholder="Ingrese el salario" class="form-control" [(ngModel)]="inputSalario" />
+        </div>
+        <!-- GRUPO BOTON -->
+        <div class="col">
+            <button type="submit" class="btn btn-success" (click)="addEmpleado()" style="margin: 30px 0 30px 0">
+        AÑADIR EMPLEADO
+      </button>
+        </div>
+    </form>
+</div>
+
+<div class="container">
     <div class="row">
         <div class="col">
-            <div *ngFor="let empleato of empleados">
-                {{ empleato.nombre }} {{ empleato.apellido }} {{ empleato.cargo }} {{ empleato.salario }}
-            </div>
+            <!-- <div *ngFor="let empleato of empleados; let i = index">
+                    {{ i + 1 }}._ {{ empleato.nombre }} {{ empleato.apellido }} {{ empleato.cargo }} {{ empleato.salario }}
+                </div> -->
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">APELLIDO</th>
+                        <th scope="col">CARGO</th>
+                        <th scope="col">SALARIO</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let empleato of empleados; let i = index">
+                    <tr>
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>{{ empleato.nombre }}</td>
+                        <td>{{ empleato.apellido }}</td>
+                        <td>{{ empleato.cargo }}</td>
+                        <td>{{ empleato.salario }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
